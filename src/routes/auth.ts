@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { authentication } from "../plugins/authenticate";
+import fetch from 'node-fetch';
 
 export async function authRoute(fastify: FastifyInstance) {
     fastify.get("/me", {
@@ -18,7 +19,7 @@ export async function authRoute(fastify: FastifyInstance) {
 
       const {access_token} = createUserBody.parse(request.body);
 
-      const userResponse = await fetch('htpps://www.googleapis.com/oauth2/v2/userinfo', {
+      const userResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${access_token}`,
@@ -26,6 +27,8 @@ export async function authRoute(fastify: FastifyInstance) {
       })
 
       const userData = await userResponse.json();
+
+      console.log("user", userData);
 
       const userInfoScheme = z.object({
         id: z.string(),

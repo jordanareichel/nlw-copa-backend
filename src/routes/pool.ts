@@ -158,9 +158,14 @@ export async function poolRoute(fastify: FastifyInstance) {
 
     const { id } = getPoolParams.parse(request.params);
 
-    const pool = await prisma.pool.findUnique({
+    const pool = await prisma.pool.findFirst({
       where: {
        id,
+       participants: {
+        some: {
+          userId: request.user.sub,
+        }
+       }
       },
       include: {
         _count: {
@@ -188,6 +193,12 @@ export async function poolRoute(fastify: FastifyInstance) {
         }
       }
     });
+
+    if(!pool) {
+      return reply.status(400).send({
+        message: 'Bolão não encontrado',
+      })
+    }
 
     return {pool};
   })
