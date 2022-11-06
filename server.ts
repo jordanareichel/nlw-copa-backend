@@ -1,10 +1,10 @@
 import Fastify from "fastify";
 import cors from '@fastify/cors';
-import { poolRoute } from "./routes/pool";
-import { userRoute } from "./routes/user";
-import { guessRoute } from "./routes/guess";
-import { authRoute } from "./routes/auth";
-import { gameRoute } from "./routes/game";
+import { poolRoute } from "./src/routes/pool";
+import { userRoute } from "./src/routes/user";
+import { guessRoute } from "./src/routes/guess";
+import { authRoute } from "./src/routes/auth";
+import { gameRoute } from "./src/routes/game";
 import jwt from "@fastify/jwt";
 
 
