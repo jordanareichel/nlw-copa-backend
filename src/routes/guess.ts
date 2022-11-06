@@ -10,14 +10,15 @@ export async function guessRoute(fastify: FastifyInstance) {
     return {count}
   });
 
-  fastify.post("/pool/:poolId/games/:game/guesses", {
+  fastify.post("/pools/:poolId/games/:gameId/guesses", {
     onRequest: [authentication],
   }, async (request, reply) => {
+
     const createGuessParams = z.object({
       poolId: z.string(),
       gameId: z.string(),
     });
-
+   
     const createGuessBody = z.object({
       firstTeamPoints: z.number(),
       secondTeamPoints: z.number(),
@@ -25,6 +26,7 @@ export async function guessRoute(fastify: FastifyInstance) {
 
     const {poolId, gameId} = createGuessParams.parse(request.params);
     const {firstTeamPoints, secondTeamPoints} = createGuessBody.parse(request.body);
+    console.log(firstTeamPoints, secondTeamPoints);
 
     const participant = await prisma.participant.findUnique({
       where: {
