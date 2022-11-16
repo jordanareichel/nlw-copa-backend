@@ -7,7 +7,7 @@ const app = Fastify({
 });
 
 // Register your application as a normal plugin.
-app.register(import("../functions/server"), {
+app.register(import("./functions/server"), {
     prefix: '/'
 });
 
