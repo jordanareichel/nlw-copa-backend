@@ -3,7 +3,7 @@ import Fastify from "fastify";
 
 // Instantiate Fastify with some config
 const app = Fastify({
-  logger: false,
+  logger: true,
 });
 
 // Register your application as a normal plugin.
