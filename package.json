@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx watch index.ts",
-    "dev": "tsx watch index.ts"
+    "start": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server.ts",
+    "vercel": "vercel dev"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,7 @@
     "@mermaid-js/mermaid-cli": "^9.1.7",
     "prisma": "^4.5.0",
     "prisma-erd-generator": "^1.2.2",
-    "tsx": "^3.11.0"
+    "tsx": "^3.11.0",
+    "@vercel/node": "^1.11.1"
   }
 }
