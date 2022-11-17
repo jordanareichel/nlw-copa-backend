@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
+    "generate": "npx prisma generate",
     "start": "ts-node  src/server.ts",
     "dev": "tsx watch src/server.ts",
     "vercel": "vercel dev"
