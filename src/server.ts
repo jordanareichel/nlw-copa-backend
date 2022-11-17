@@ -6,9 +6,7 @@ import { guessRoute } from "./routes/guess";
 import { authRoute } from "./routes/auth";
 import { gameRoute } from "./routes/game";
 import jwt from "@fastify/jwt";
-import * as dotenv from 'dotenv';
 
-dotenv.config();
 
 
 async function start(){
