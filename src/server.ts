@@ -6,6 +6,9 @@ import { guessRoute } from "./routes/guess";
 import { authRoute } from "./routes/auth";
 import { gameRoute } from "./routes/game";
 import jwt from "@fastify/jwt";
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 
 async function start(){
@@ -28,7 +31,11 @@ async function start(){
   await fastify.register(guessRoute);
   await fastify.register(gameRoute);
 
-  await fastify.listen({port: 3333, host: '0.0.0.0'});
+  // await fastify.listen({port: 3333, host: '0.0.0.0'});
+  await fastify.listen(3333, '0.0.0.0', (err, address) => {
+    if (err) throw err
+    fastify.log.info(`server listening on ${address}`)
+  })
 }
 
 start();
