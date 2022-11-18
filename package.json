@@ -16,6 +16,7 @@
     "seed": "tsx prisma/seed.ts",
     "schema": "prisma/schema.prisma"
   },
+  "postinstall": "prisma generate",
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "@fastify/cors": "^8.1.1",
