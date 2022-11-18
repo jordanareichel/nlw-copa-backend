@@ -34,7 +34,7 @@
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^9.1.7",
     "@vercel/node": "^1.11.1",
-    "prisma": "^4.5.0",
+    "prisma": "^4.6.1",
     "prisma-erd-generator": "^1.2.2",
     "tsx": "^3.11.0"
   }
